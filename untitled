@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import pandas as pd
+import numpy as np
+import os
+import json
+#import openpyx1
+import sqlite3
+import matplotlib.pyplot as plt
+
+
+df = pd.read_csv('D:\Artwork_data.csv', 
+ usecols = ['id','artist','title','medium','year','acquisitionYear','height','width','units'], index_col='id')
+
+
+
+small_df = df.loc[49980:50019,:].copy()
+
+acq_years= df.groupby('acquisitionYear').size()
+plt.plot(acq_years)
+plt.show()
+
+
+
+
